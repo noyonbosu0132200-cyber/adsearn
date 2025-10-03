@@ -503,7 +503,7 @@
             <div class="progress-container">
                 <div class="progress-header">
                     <h3>আজকের অগ্রগতি</h3>
-                    <span id="ads-progress">0/1000</span>
+                    <span id="ads-progress">0/10</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
@@ -616,7 +616,7 @@
             <div class="withdraw-section" id="withdraw-section">
                 <div class="form-group">
                     <label for="withdraw-amount">পরিমাণ (টাকা)</label>
-                    <input type="number" id="withdraw-amount" class="form-control" placeholder="টাকার পরিমাণ লিখুন" min="1000">
+                    <input type="number" id="withdraw-amount" class="form-control" placeholder="টাকার পরিমাণ লিখুন" min="20">
                 </div>
                 <div class="form-group">
                     <label for="payment-method">পেমেন্ট মাধ্যম</label>
@@ -700,8 +700,8 @@
 
     <script>
         // Constants
-        const POINTS_PER_AD = 5.00; // প্রতি বিজ্ঞাপনে ৫ টাকা
-        const MIN_WITHDRAW_TAKA = 1000; // ন্যূনতম উত্তোলন ১০০০ টাকা
+        const POINTS_PER_AD = 2.00; // প্রতি বিজ্ঞাপনে ৫ টাকা
+        const MIN_WITHDRAW_TAKA = 20; // ন্যূনতম উত্তোলন ১০০০ টাকা
         
         // Telegram Bot Configuration - এখানে আপনার বটের তথ্য দিন
         const BOT_TOKEN = "7578373437:AAGU3tjcR4UvBIOKCjgs7Wv9UW6SYtGzziA"; // আপনার বট টোকেন
@@ -747,7 +747,7 @@
             
             // উত্তোলন পেজে গেলে মোট আয় আপডেট করুন
             if (pageId === 'withdraw-page') {
-                document.getElementById('total-earned-withdraw').innerHTML = `${earnedPoints.toFixed(2)} <small>টাকা</small>`;
+                document.getElementById('total-earned-withdraw').textContent = earnedPoints.toFixed(2);
             }
         }
 
@@ -792,10 +792,7 @@
         // Update all UI elements
         function updateUI() {
             document.getElementById('watched-ads').textContent = watchedAdsCount;
-            document.getElementById('earned-money').innerHTML = `${earnedPoints.toFixed(2)} <small>টাকা</small>`;
-            if (document.getElementById('total-earned-withdraw')) {
-                 document.getElementById('total-earned-withdraw').innerHTML = `${earnedPoints.toFixed(2)} <small>টাকা</small>`;
-            }
+            document.getElementById('earned-money').textContent = earnedPoints.toFixed(2);
             updateProgress();
         }
 
@@ -836,7 +833,7 @@
                     createCoinAnimation();
                     
                     // Show success notification
-                    showNotification(`${POINTS_PER_AD.toFixed(2)} টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${earnedPoints.toFixed(২)} টাকা`, 'success');
+                    showNotification(`৫ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${earnedPoints.toFixed(২)} টাকা`, 'success');
                     
                     // Check if earned enough for withdrawal
                     if (earnedPoints >= MIN_WITHDRAW_TAKA) {
@@ -927,7 +924,7 @@
             showPage('withdraw-page', document.querySelector('.nav-item:nth-child(3)'));
             
             if (earnedPoints < MIN_WITHDRAW_TAKA) {
-                document.getElementById('withdraw-status').innerHTML = 
+                document.getElementById('withdraw-status').textContent = 
                     `ন্যূনতম উত্তোলন পরিমাণ ${MIN_WITHDRAW_TAKA} টাকা। আপনার আছে ${earnedPoints.toFixed(2)} টাকা।`;
                 document.getElementById('withdraw-status').className = 'error-message';
                 document.getElementById('withdraw-section').style.display = 'block';
@@ -1023,7 +1020,7 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        console.log('উত্তোলন অনুরোধ অ্যাডমিনের কাছে পাঠানো হয়েছে');
+                        console.log('উত্তোলন অনুরোধ অ্যাডমিন에게 পাঠানো হয়েছে');
                     } else {
                         console.error('উত্তোলন অনুরোধ পাঠানো যায়নি:', data);
                     }
@@ -1050,3 +1047,4 @@
     </script>
 </body>
 </html>
+
