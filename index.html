@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> EARN MONEY ONLIONE </title>
+    <title>টাকা আয় করুন - বিজ্ঞাপন দেখুন</title>
     <script src='//libtl.com/sdk.js' data-zone='9953069' data-sdk='show_9953069'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -75,7 +75,7 @@
             margin-top: 10px;
         }
         
-        .user-card, .stat-card, .progress-container, .social-section, .rate-info, .withdraw-section, .ad-status {
+        .user-card, .stat-card, .progress-container, .referral-section, .rate-info, .withdraw-section, .ad-status {
             background-color: var(--card-bg);
             margin: 15px;
             padding: 15px;
@@ -243,23 +243,44 @@
             color: var(--secondary-color);
         }
         
-        .social-buttons {
+        .referral-stats {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .referral-link-container {
+            display: flex;
             margin-top: 15px;
         }
         
-        .btn-telegram {
-            background: linear-gradient(to right, #0088cc, #34b7f1);
-            color: white;
-            text-decoration: none;
+        #referral-link {
+            flex: 1;
+            padding: 12px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px 0 0 8px;
+            color: var(--text-color);
+            font-size: 14px;
+            outline: none;
         }
         
-        .btn-youtube {
-            background: linear-gradient(to right, #ff0000, #ff6b6b);
+        #copy-referral {
+            padding: 0 15px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 0 8px 8px 0;
             color: white;
-            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #copy-referral:hover {
+            opacity: 0.9;
         }
         
         .withdraw-section { 
@@ -458,7 +479,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1> EARN MONEY ONLINE </h1>
+            <h1>টাকা আয় করুন - বিজ্ঞাপন দেখুন</h1>
             <p>বিজ্ঞাপন দেখে আসল টাকা আয় করুন</p>
             <div class="badge">সক্রিয়</div>
         </div>
@@ -510,7 +531,7 @@
                 </div>
                 <div class="progress-text">
                     <span>0 টাকা</span>
-                    <span>1000 টাকা</span>
+                    <span>20 টাকা</span>
                 </div>
             </div>
             
@@ -520,7 +541,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (5 টাকা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (২ টাকা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -549,23 +570,23 @@
                 </center>
             </div>
             
-            <div class="social-section">
-                <h3 class="section-title"><i class="fas fa-users"></i> আমাদের কমিউনিটিতে যোগ দিন</h3>
-                <p style="font-size: 14px; margin-bottom: 15px;">আমাদের টেলিগ্রাম এবং ইউটিউব চ্যানেলে জয়েন করুন এবং আপডেট পান।</p>
-                <div class="social-buttons">
-                    <a href="https://t.me/+VrpmKt4Xny0xN2Nl" target="_blank" class="btn btn-telegram">
-                        <i class="fab fa-telegram"></i> টেলিগ্রাম চ্যানেল
-                    </a>
-                    <a href="https://www.youtube.com/@cash.rain.09" target="_blank" class="btn btn-youtube">
-                        <i class="fab fa-youtube"></i> ইউটিউব চ্যানেল
-                    </a>
+            <div class="referral-section">
+                <h3 class="section-title"><i class="fas fa-users"></i> বন্ধুকে আমন্ত্রণ করুন</h3>
+                <div class="referral-stats">
+                    <div>আমন্ত্রিত: <strong id="referral-count">0</strong></div>
+                    <div>আয়: <strong id="referral-earnings">0.00</strong> টাকা</div>
+                </div>
+                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ৫ টাকা বোনাস পান!</p>
+                <div class="referral-link-container">
+                    <input type="text" id="referral-link" readonly>
+                    <button id="copy-referral" onclick="copyReferralLink()">কপি</button>
                 </div>
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৫ টাকা</p>
-                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ১০০০ টাকা</p>
-                <p><i class="fas fa-gift"></i> আমাদের চ্যানেলে জয়েন করুন বোনাস পেতে</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ২ টাকা</p>
+                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ২০ টাকা</p>
+                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৫ টাকা প্রতি ব্যবহারকারী</p>
             </div>
         </div>
         
@@ -575,7 +596,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn-earn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (৫ টাকা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (২ টাকা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn-earn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -585,22 +606,22 @@
                 </button>
             </div>
             
-            <div class="social-section">
-                <h3 class="section-title"><i class="fas fa-users"></i> আমাদের কমিউনিটিতে যোগ দিন</h3>
-                <p style="font-size: 14px; margin-bottom: 15px;">আমাদের টেলিগ্রাম এবং ইউটিউব চ্যানেলে জয়েন করুন এবং আপডেট পান।</p>
-                <div class="social-buttons">
-                    <a href="https://t.me/+VrpmKt4Xny0xN2Nl" target="_blank" class="btn btn-telegram">
-                        <i class="fab fa-telegram"></i> টেলিগ্রাম চ্যানেল
-                    </a>
-                    <a href="https://www.https://www.youtube.com/@cash.rain.09" target="_blank" class="btn btn-youtube">
-                        <i class="fab fa-youtube"></i> ইউটিউব চ্যানেল
-                    </a>
+            <div class="referral-section">
+                <h3 class="section-title"><i class="fas fa-users"></i> বন্ধুকে আমন্ত্রণ করুন</h3>
+                <div class="referral-stats">
+                    <div>আমন্ত্রিত: <strong id="referral-count-earn">0</strong></div>
+                    <div>আয়: <strong id="referral-earnings-earn">0.00</strong> টাকা</div>
+                </div>
+                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ৫ টাকা বোনাস পান!</p>
+                <div class="referral-link-container">
+                    <input type="text" id="referral-link-earn" readonly>
+                    <button id="copy-referral-earn" onclick="copyReferralLink()">কপি</button>
                 </div>
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৫ টাকা</p>
-                <p><i class="fas fa-gift"></i> আমাদের চ্যানেলে জয়েন করুন বোনাস পেতে</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ২ টাকা</p>
+                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৫ টাকা প্রতি ব্যবহারকারী</p>
             </div>
         </div>
         
@@ -638,7 +659,7 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ১০০০ টাকা</p>
+                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ২০ টাকা</p>
                 <p><i class="fas fa-clock"></i> উত্তোলন প্রসেসিং সময়: ২৪-৪৮ ঘন্টা</p>
             </div>
         </div>
@@ -656,13 +677,13 @@
                 
                 <div class="stat-card">
                     <h3><i class="fas fa-gift"></i> বিশেষ অফার</h3>
-                    <p>আমাদের টেলিগ্রাম এবং ইউটিউব চ্যানেলে জয়েন করুন এবং বিশেষ অফার পান।</p>
+                    <p>এই সপ্তাহে অতিরিক্ত ১০% বোনাস পেতে আপনার বন্ধুদের আমন্ত্রণ করুন।</p>
                     <small>৫ দিন আগে</small>
                 </div>
                 
                 <div class="stat-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h3>
-                    <p>উত্তোলনের জন্য ন্যূনতম ১০০০ টাকা প্রয়োজন। দয়া করে উত্তোলন করার আগে নিশ্চিত হয়ে নিন।</p>
+                    <p>উত্তোলনের জন্য ন্যূনতম ২০ টাকা প্রয়োজন। দয়া করে উত্তোলন করার আগে নিশ্চিত হয়ে নিন।</p>
                     <small>১ সপ্তাহ আগে</small>
                 </div>
             </div>
@@ -700,8 +721,9 @@
 
     <script>
         // Constants
-        const POINTS_PER_AD = 2.00; // প্রতি বিজ্ঞাপনে ৫ টাকা
-        const MIN_WITHDRAW_TAKA = 20; // ন্যূনতম উত্তোলন ১০০০ টাকা
+        const POINTS_PER_AD = 2.00; // প্রতি বিজ্ঞাপনে ২ টাকা
+        const MIN_WITHDRAW_TAKA = 20; // ন্যূনতম উত্তোলন ২০ টাকা
+        const REFERRAL_BONUS = 5.00; // রেফারেল বোনাস ৫ টাকা
         
         // Telegram Bot Configuration - এখানে আপনার বটের তথ্য দিন
         const BOT_TOKEN = "7578373437:AAGU3tjcR4UvBIOKCjgs7Wv9UW6SYtGzziA"; // আপনার বট টোকেন
@@ -710,6 +732,8 @@
         // Variables
         let watchedAdsCount = 0;
         let earnedPoints = 0.00;
+        let referralCount = 0;
+        let referralEarnings = 0.00;
         let userId = generateUserId();
         let autoAdInterval;
         let isAutoMode = false;
@@ -717,6 +741,9 @@
 
         // Initialize the app
         function initApp() {
+            // Check for referral in URL
+            checkReferral();
+            
             // Set user info
             document.getElementById('user-id').textContent = userId;
             document.getElementById('user-avatar').textContent = userId.charAt(0).toUpperCase();
@@ -725,6 +752,9 @@
             loadUserData();
             updateUI();
             checkAdReady();
+            
+            // Generate referral link
+            generateReferralLink();
         }
 
         // পেজ দেখানোর ফাংশন
@@ -747,7 +777,14 @@
             
             // উত্তোলন পেজে গেলে মোট আয় আপডেট করুন
             if (pageId === 'withdraw-page') {
-                document.getElementById('total-earned-withdraw').textContent = earnedPoints.toFixed(2);
+                document.getElementById('total-earned-withdraw').textContent = (earnedPoints + referralEarnings).toFixed(2);
+            }
+            
+            // আর্ন পেজে গেলে ডেটা আপডেট করুন
+            if (pageId === 'earn-page') {
+                document.getElementById('referral-count-earn').textContent = referralCount;
+                document.getElementById('referral-earnings-earn').textContent = referralEarnings.toFixed(2);
+                document.getElementById('referral-link-earn').value = document.getElementById('referral-link').value;
             }
         }
 
@@ -760,6 +797,52 @@
             const newId = Math.floor(100000 + Math.random() * 900000);
             localStorage.setItem('userId', newId.toString());
             return newId.toString();
+        }
+
+        // Check if there's a referral in URL
+        function checkReferral() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrerId = urlParams.get('ref');
+            
+            if (referrerId && referrerId !== userId) {
+                // Check if this is first visit and not already referred
+                if (!localStorage.getItem('referredBy')) {
+                    localStorage.setItem('referredBy', referrerId);
+                    showNotification('আপনি একটি রেফারেল লিঙ্ক ব্যবহার করে যোগদান করেছেন! রেফারার ৫ টাকা বোনাস পাবেন।', 'success');
+                    
+                    // In a real app, you would send this to your backend
+                    setTimeout(() => {
+                        console.log(`User ${referrerId} should get referral bonus`);
+                    }, 1000);
+                }
+            }
+        }
+
+        // Generate referral link
+        function generateReferralLink() {
+            const currentUrl = window.location.href.split('?')[0];
+            const referralLink = `${currentUrl}?ref=${userId}`;
+            document.getElementById('referral-link').value = referralLink;
+        }
+
+        // Copy referral link to clipboard
+        function copyReferralLink() {
+            const referralLink = document.getElementById('referral-link');
+            referralLink.select();
+            document.execCommand('copy');
+            
+            // Show copied message
+            const copyBtn = document.getElementById('copy-referral');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = 'কপি হয়েছে!';
+            copyBtn.style.background = 'var(--success-color)';
+            
+            showNotification('রেফারেল লিঙ্ক কপি করা হয়েছে!', 'success');
+            
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = 'linear-gradient(to right, var(--primary-color), var(--secondary-color))';
+            }, 2000);
         }
 
         // Check if Monetag ad is ready
@@ -781,18 +864,30 @@
             if (localStorage.getItem('earnedPoints')) {
                 earnedPoints = parseFloat(localStorage.getItem('earnedPoints'));
             }
+            
+            if (localStorage.getItem('referralCount')) {
+                referralCount = parseInt(localStorage.getItem('referralCount'));
+            }
+            
+            if (localStorage.getItem('referralEarnings')) {
+                referralEarnings = parseFloat(localStorage.getItem('referralEarnings'));
+            }
         }
 
         // Save user data to localStorage
         function saveUserData() {
             localStorage.setItem('watchedAdsCount', watchedAdsCount);
             localStorage.setItem('earnedPoints', earnedPoints.toFixed(2));
+            localStorage.setItem('referralCount', referralCount);
+            localStorage.setItem('referralEarnings', referralEarnings.toFixed(2));
         }
 
         // Update all UI elements
         function updateUI() {
             document.getElementById('watched-ads').textContent = watchedAdsCount;
-            document.getElementById('earned-money').textContent = earnedPoints.toFixed(2);
+            document.getElementById('earned-money').textContent = (earnedPoints + referralEarnings).toFixed(2);
+            document.getElementById('referral-count').textContent = referralCount;
+            document.getElementById('referral-earnings').textContent = referralEarnings.toFixed(2);
             updateProgress();
         }
 
@@ -833,10 +928,10 @@
                     createCoinAnimation();
                     
                     // Show success notification
-                    showNotification(`৫ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${earnedPoints.toFixed(২)} টাকা`, 'success');
+                    showNotification(`২ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
                     
                     // Check if earned enough for withdrawal
-                    if (earnedPoints >= MIN_WITHDRAW_TAKA) {
+                    if (earnedPoints + referralEarnings >= MIN_WITHDRAW_TAKA) {
                         showNotification(`অভিনন্দন! আপনি উত্তোলনের জন্য ${MIN_WITHDRAW_TAKA} টাকা সংগ্রহ করেছেন।`, 'info');
                     }
                     
@@ -923,17 +1018,19 @@
             // উত্তোলন পেজ দেখান
             showPage('withdraw-page', document.querySelector('.nav-item:nth-child(3)'));
             
-            if (earnedPoints < MIN_WITHDRAW_TAKA) {
+            const totalEarnings = earnedPoints + referralEarnings;
+            
+            if (totalEarnings < MIN_WITHDRAW_TAKA) {
                 document.getElementById('withdraw-status').textContent = 
-                    `ন্যূনতম উত্তোলন পরিমাণ ${MIN_WITHDRAW_TAKA} টাকা। আপনার আছে ${earnedPoints.toFixed(2)} টাকা।`;
+                    `ন্যূনতম উত্তোলন পরিমাণ ${MIN_WITHDRAW_TAKA} টাকা। আপনার আছে ${totalEarnings.toFixed(2)} টাকা।`;
                 document.getElementById('withdraw-status').className = 'error-message';
                 document.getElementById('withdraw-section').style.display = 'block';
                 return;
             }
             
             document.getElementById('withdraw-amount').value = '';
-            document.getElementById('withdraw-amount').placeholder = `সর্বোচ্চ: ${earnedPoints.toFixed(2)} টাকা`;
-            document.getElementById('withdraw-amount').max = earnedPoints.toFixed(2);
+            document.getElementById('withdraw-amount').placeholder = `সর্বোচ্চ: ${totalEarnings.toFixed(2)} টাকা`;
+            document.getElementById('withdraw-amount').max = totalEarnings.toFixed(2);
             document.getElementById('withdraw-phone').value = '';
             document.getElementById('payment-method').selectedIndex = 0;
             document.getElementById('withdraw-status').textContent = '';
@@ -945,6 +1042,7 @@
             const amount = parseFloat(document.getElementById('withdraw-amount').value);
             const paymentMethod = document.getElementById('payment-method').value;
             const phoneNumber = document.getElementById('withdraw-phone').value;
+            const totalEarnings = earnedPoints + referralEarnings;
             const withdrawStatus = document.getElementById('withdraw-status');
             
             // Validate inputs
@@ -960,8 +1058,8 @@
                 return;
             }
             
-            if (amount > earnedPoints) {
-                withdrawStatus.textContent = `পর্যাপ্ত ব্যালেন্স নেই। আপনার আছে ${earnedPoints.toFixed(2)} টাকা।`;
+            if (amount > totalEarnings) {
+                withdrawStatus.textContent = `পর্যাপ্ত ব্যালেন্স নেই। আপনার আছে ${totalEarnings.toFixed(2)} টাকা।`;
                 withdrawStatus.className = 'error-message';
                 return;
             }
@@ -978,9 +1076,19 @@
                 return;
             }
             
-            // Deduct points
-            earnedPoints -= amount;
-            if (earnedPoints < 0) earnedPoints = 0;
+            // Calculate points to deduct
+            let remainingAmount = amount;
+            
+            if (referralEarnings > 0) {
+                const referralDeduction = Math.min(referralEarnings, remainingAmount);
+                referralEarnings -= referralDeduction;
+                remainingAmount -= referralDeduction;
+            }
+            
+            if (remainingAmount > 0) {
+                earnedPoints -= remainingAmount;
+                if (earnedPoints < 0) earnedPoints = 0;
+            }
             
             // Save and update UI
             saveUserData();
@@ -993,7 +1101,8 @@
                              `📱 মাধ্যম: ${paymentMethod.toUpperCase()}\n` +
                              `📞 ফোন: ${phoneNumber}\n\n` +
                              `📊 দেখা বিজ্ঞাপন: ${watchedAdsCount}\n` +
-                             `💵 মোট আয়: ${earnedPoints.toFixed(2)} টাকা`;
+                             `👥 আমন্ত্রিত: ${referralCount}\n` +
+                             `💵 মোট আয়: ${totalEarnings.toFixed(2)} টাকা`;
             
             // Send to admin via Telegram
             sendWithdrawRequestToAdmin(message);
@@ -1047,4 +1156,3 @@
     </script>
 </body>
 </html>
-
