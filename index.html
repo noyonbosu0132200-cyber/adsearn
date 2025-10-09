@@ -555,7 +555,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (৩০ পয়সা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (২০ পয়সা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -598,7 +598,7 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৩০ পয়সা</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ২০ পয়সা</p>
                 <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০ টাকা</p>
                 <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৫ টাকা প্রতি ব্যবহারকারী</p>
                 <p><i class="fas fa-calendar-day"></i> দৈনিক সীমা: ১০০ বিজ্ঞাপন</p>
@@ -611,7 +611,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn-earn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (৩০ পয়সা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (২০ পয়সা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn-earn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -635,7 +635,7 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৩০ পয়সা</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ২০ পয়সা</p>
                 <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৫ টাকা প্রতি ব্যবহারকারী</p>
                 <p><i class="fas fa-calendar-day"></i> দৈনিক সীমা: ১০০ বিজ্ঞাপন</p>
             </div>
@@ -661,7 +661,7 @@
                         <option value="" disabled selected>পেমেন্ট মাধ্যম নির্বাচন করুন</option>
                         <option value="bkash">bKash</option>
                         <option value="nagad">Nagad</option>
-                        <option value="rocket">Rocket</option>
+                        <script src='//libtl.com/sdk.js' data-zone='9981100' data-sdk='show_9981100'></script>
                     </select>
                 </div>
                 <div class="form-group">
@@ -687,7 +687,7 @@
             <div class="notification-list">
                 <div class="stat-card">
                     <h3><i class="fas fa-info-circle"></i> নতুন আপডেট</h3>
-                    <p>প্রতি বিজ্ঞাপনের মূল্য ৩০ পয়সা করা হয়েছে। দৈনিক সর্বোচ্চ ১০০টি বিজ্ঞাপন দেখা যাবে।</p>
+                    <p>প্রতি বিজ্ঞাপনের মূল্য ২০ পয়সা করা হয়েছে। দৈনিক সর্বোচ্চ ১০০টি বিজ্ঞাপন দেখা যাবে।</p>
                     <small>আজ</small>
                 </div>
                 
@@ -706,7 +706,7 @@
         </div>
         
         <div class="footer">
-            <p>© ২০২৩ টাকা আয় করুন অ্যাপ। সকল অধিকার সংরক্ষিত।</p>
+            <p>© ২০২৫ টাকা আয় করুন অ্যাপ। সকল অধিকার সংরক্ষিত।</p>
         </div>
     </div>
 
@@ -737,7 +737,7 @@
 
     <script>
         // Constants
-        const POINTS_PER_AD = 0.30; // প্রতি বিজ্ঞাপনে ৩০ পয়সা (0.30 টাকা)
+        const POINTS_PER_AD = 0.20; // প্রতি বিজ্ঞাপনে ২০ পয়সা (0.20 টাকা)
         const MIN_WITHDRAW_TAKA = 50; // ন্যূনতম উত্তোলন ৫০ টাকা
         const REFERRAL_BONUS = 5.00; // রেফারেল বোনাস ৫ টাকা
         const DAILY_AD_LIMIT = 100; // দৈনিক সর্বোচ্চ বিজ্ঞাপন
@@ -975,7 +975,7 @@
                     createCoinAnimation();
                     
                     // Show success notification
-                    showNotification(`৩০ পয়সা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
+                    showNotification(`২০ পয়সা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
                     
                     // Check if earned enough for withdrawal
                     if (earnedPoints + referralEarnings >= MIN_WITHDRAW_TAKA) {
@@ -1203,3 +1203,4 @@
     </script>
 </body>
 </html>
+
